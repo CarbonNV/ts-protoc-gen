@@ -7,14 +7,14 @@ carbon.withNode("py-docker") {
     def containerTag = "${env.BRANCH_NAME}"
 
     carbon.withStage("Build") {
-        py "build.py --name ${containerName} --tag ${containerTag} --build src/"
+        py "build.py --name ${containerName} --tag ${containerTag} --build ./"
     }
 }
 
 if (env.BRANCH_NAME == 'master') {
     carbon.withNode("py-docker && npm-deploy") {
         carbon.withDeploymentStage("Client") {
-            py "build.py --build src/ --vars-file envs/client/deployment.vars --deploy-npm"
+            py "build.py --build ./ --vars-file envs/client/deployment.vars --deploy-npm"
         }
     }
 }
