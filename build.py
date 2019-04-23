@@ -1,7 +1,6 @@
-from builder import docker_util
 from builder import deployment
+from builder import docker_util
 from builder import util
-
 
 if __name__ == '__main__':
     import argparse
