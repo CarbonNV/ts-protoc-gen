@@ -14,12 +14,10 @@ if __name__ == '__main__':
 
     env = util.source_vars(filename=args.vars_file) if args.vars_file else {}
 
-    name = env.get('IMAGE_NAME', args.name)
+    name = args.name or env.get('SERVICE_BASE_NAME') or env.get('SERVICE_BASE_NAME')
     if not name:
         raise Exception('name must be provided')
-    tag = env.get('VERSION', args.tag)
-    if not tag:
-        raise Exception('tag must be provided')
+    tag = args.tag or env.get('VERSION') or util.get_current_commit_count()
 
     imageName = '{name}:{tag}'.format(name=name, tag=tag)
     if args.build:
