@@ -11,6 +11,8 @@
 
 # Protobufs
 *_pb2.py
+*_pb2.js
+*_pb2.d.ts
 
 # Testing
 coverage
