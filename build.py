@@ -14,7 +14,7 @@ if __name__ == '__main__':
 
     env = util.source_vars(filename=args.vars_file) if args.vars_file else {}
 
-    name = args.name or env.get('SERVICE_BASE_NAME') or env.get('SERVICE_BASE_NAME')
+    name = args.name or env.get('SERVICE_BASE_NAME')
     if not name:
         raise Exception('name must be provided')
     tag = args.tag or env.get('VERSION') or util.get_current_commit_count()
