@@ -1,0 +1,4 @@
+Jenkinsfile @carbonnv/admin
+build.py @carbonnv/admin
+CODEOWNERS @carbonnv/admin
+envs @carbonnv/admin
