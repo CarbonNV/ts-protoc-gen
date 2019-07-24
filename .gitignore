@@ -27,6 +27,7 @@ test.log
 lint.log
 pylint.log
 pipdeptree.log
+local_testing.py
 
 # Generated Code
 generated/
