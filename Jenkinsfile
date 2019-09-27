@@ -1,12 +1,13 @@
 #!/usr/bin/env groovy
 
 @Library('Carbon-CI') _
+util.abortPreviousRunningBuilds(['develop', 'master'])
 
 carbon.withNode("py-docker") {
     def containerName = "carbon-ts-protoc-gen"
     def containerTag = "${env.BRANCH_NAME}"
 
-    carbon.withStage("Build") {
+    carbon.withStage("Python Service Build") {
         py "build.py --name ${containerName} --tag ${containerTag} --build ./"
     }
 }
